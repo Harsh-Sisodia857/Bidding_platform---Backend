@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const bidController = require('../controllers/bid.controller');
-const authMiddleware = require('../middleware/auth.middleware');
-const roleMiddleware = require('../middleware/role.middleware');
+const bidController = require('../controllers/bidController');
+const authMiddleware = require('../middlewares/authMiddleware');
+const roleMiddleware = require('../middlewares/roleMiddleware');
 
 
 router.post('/', [authMiddleware.verifyToken, roleMiddleware.isBidder], bidController.createBid);
